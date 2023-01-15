@@ -1,5 +1,6 @@
 {% extends "event/form_base.html" %}
 
+{% block title %}Sign Up - MakeUofT 2021{% endblock %}
 {% block form_title %}Sign up{% endblock %}
 
 {% block nav_logout_login_links %}{% endblock %}
@@ -14,7 +15,6 @@
     {{ render_field(form.last_name) }}
     {{ render_field(form.password1, show_help_text=True) }}
     {{ render_field(form.password2) }}
-    {{ render_field(form.captcha) }}
 
     {% if form.non_field_errors() %}
         {% for error in form.non_field_errors() %}

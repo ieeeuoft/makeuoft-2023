@@ -23,7 +23,7 @@ from django.urls import reverse_lazy
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start makeuoft2023-development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -306,12 +306,12 @@ DEFAULT_FROM_EMAIL = "webmaster@localhost"
 CONTACT_EMAIL = DEFAULT_FROM_EMAIL
 HSS_ADMIN_EMAIL = "hardware@makeuoft.ca"
 
-REGISTRATION_OPEN_DATE = datetime(2020, 9, 1, tzinfo=TZ_INFO)
-REGISTRATION_CLOSE_DATE = datetime(2023, 9, 30, tzinfo=TZ_INFO)
-EVENT_START_DATE = datetime(2023, 10, 10, 10, 0, 0, tzinfo=TZ_INFO)
-EVENT_END_DATE = datetime(2023, 10, 11, 17, 0, 0, tzinfo=TZ_INFO)
-HARDWARE_SIGN_OUT_START_DATE = datetime(2020, 9, 1, tzinfo=TZ_INFO)
-HARDWARE_SIGN_OUT_END_DATE = datetime(2023, 9, 30, tzinfo=TZ_INFO)
+REGISTRATION_OPEN_DATE = datetime(2023, 1, 16, tzinfo=TZ_INFO)
+REGISTRATION_CLOSE_DATE = datetime(2023, 2, 4, tzinfo=TZ_INFO)
+EVENT_START_DATE = datetime(2023, 2, 18, 10, 0, 0, tzinfo=TZ_INFO)
+EVENT_END_DATE = datetime(2023, 2, 19, 17, 0, 0, tzinfo=TZ_INFO)
+HARDWARE_SIGN_OUT_START_DATE = datetime(2023, 2, 18, tzinfo=TZ_INFO)
+HARDWARE_SIGN_OUT_END_DATE = datetime(2023, 2, 19, tzinfo=TZ_INFO)
 
 # Registration user requirements
 MINIMUM_AGE = 14
