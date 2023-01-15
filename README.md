@@ -98,17 +98,17 @@ Before the development server can be ran, the database must be running. This pro
 
 You may install Postgres on your machine if you wish, but we recommend running it locally using docker. A docker-compose service is available in [development/docker-compose.yml](/home/graham/ieee/hackathon-template/README.md). To run all the services, including the database:
 ```bash
-$ docker-compose -f makeuoft2023-development/docker-compose.yml up -d
+$ docker-compose -f development/docker-compose.yml up -d
 ```
 
 To shut down the database and all other services:
 ```bash
-$ docker-compose -f makeuoft2023-development/docker-compose.yml down
+$ docker-compose -f development/docker-compose.yml down
 ```
 
 To run only the database service:
 ```bash
-$ docker-compose -f makeuoft2023-development/docker-compose.yml up -d postgres
+$ docker-compose -f development/docker-compose.yml up -d postgres
 ```
 
 The postgres container uses a volume mounted to `development/.postgres-data/` for persistent data storage, so you can safely stop the service without losing any data in your local database.
@@ -127,12 +127,12 @@ This application also relies on a cache, for which we use [Redis](https://redis.
 
 You may install Redis on your machine if you wish, but we recommend running it locally using docker. A Redis service is available in [development/docker-compose.yml](/home/graham/ieee/hackathon-template/README.md). To run all the services, including the database:
 ```bash
-$ docker-compose -f makeuoft2023-development/docker-compose.yml up -d
+$ docker-compose -f development/docker-compose.yml up -d
 ```
 
 To run only the redis service:
 ```bash
-$ docker-compose -f makeuoft2023-development/docker-compose.yml up -d redis
+$ docker-compose -f development/docker-compose.yml up -d redis
 ```
 
 If you run multiple instances of this application in production using Redis through Docker (perhaps in Swarm mode), you should make sure that the Redis databases used between applications do not conflict. The easiest way to do this is to change the database id in the [Redis URI environment variable](#environment-variables), eg to `172.17.0.1:6379/2`.

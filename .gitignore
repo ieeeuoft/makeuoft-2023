@@ -148,7 +148,7 @@ hackathon_site/media/
 hackathon_site/emails/
 
 # Database persistent data
-makeuoft2023-development/.postgres-data/
+development/.postgres-data/
 
 # CSS Files
 hackathon_site/**/*.css

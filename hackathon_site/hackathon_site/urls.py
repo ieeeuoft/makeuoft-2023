@@ -63,7 +63,7 @@ if settings.DEBUG:
 
     if settings.MEDIA_URL.startswith("http"):
         raise ImproperlyConfigured(
-            "To serve media from off-site in makeuoft2023-development, "
+            "To serve media from off-site in development, "
             "remove the media path from hackathon_site.urls"
         )
     urlpatterns += [

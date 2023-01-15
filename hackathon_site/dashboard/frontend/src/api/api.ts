@@ -5,7 +5,7 @@ export type { AxiosResponse } from "axios";
 
 let SERVER_URL: string;
 
-if (process.env.NODE_ENV === "makeuoft2023-development") {
+if (process.env.NODE_ENV === "development") {
     if (!process.env.REACT_APP_DEV_SERVER_URL) {
         throw new Error(
             "REACT_APP_DEV_SERVER_URL must be set (probably to http://localhost:8000)"
