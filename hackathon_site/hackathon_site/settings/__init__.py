@@ -310,8 +310,8 @@ REGISTRATION_OPEN_DATE = datetime(2023, 1, 16, 12, 0, 0, tzinfo=TZ_INFO)
 REGISTRATION_CLOSE_DATE = datetime(2023, 2, 4, 23, 59, 0, tzinfo=TZ_INFO)
 EVENT_START_DATE = datetime(2023, 2, 18, 10, 0, 0, tzinfo=TZ_INFO)
 EVENT_END_DATE = datetime(2023, 2, 19, 17, 0, 0, tzinfo=TZ_INFO)
-HARDWARE_SIGN_OUT_START_DATE = datetime(2023, 2, 18, tzinfo=TZ_INFO)
-HARDWARE_SIGN_OUT_END_DATE = datetime(2023, 2, 19, tzinfo=TZ_INFO)
+HARDWARE_SIGN_OUT_START_DATE = datetime(2023, 2, 4, 0, 0, 0, tzinfo=TZ_INFO)
+HARDWARE_SIGN_OUT_END_DATE = datetime(2023, 2, 19, 17, 00, 0, tzinfo=TZ_INFO)
 
 # Registration user requirements
 MINIMUM_AGE = 18
