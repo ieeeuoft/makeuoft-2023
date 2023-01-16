@@ -77,7 +77,6 @@ function setCounter(countDownDate) {
     console.log("days, hours", days, hours);
 
     if (hours < 1) {
-
         console.log("less than 1 hour");
         const minutes = Math.floor(distance / (1000 * 60));
         // Change to show minutes on the website
@@ -108,4 +107,3 @@ function setCounter(countDownDate) {
     $("#day2").html(Math.floor(days / 10) % 10);
     $("#day3").html(days % 10);
 }
-
