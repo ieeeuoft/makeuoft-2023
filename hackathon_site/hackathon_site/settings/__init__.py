@@ -308,7 +308,7 @@ LOGGING = {
 
 # Event specific settings
 HACKATHON_NAME = "MakeUofT"
-DEFAULT_FROM_EMAIL = "webmaster@ieee.utoronto.ca"
+DEFAULT_FROM_EMAIL = "hello@makeuoft.ca"
 CONTACT_EMAIL = "hello@makeuoft.ca"
 HSS_ADMIN_EMAIL = "hardware@makeuoft.ca"
 
