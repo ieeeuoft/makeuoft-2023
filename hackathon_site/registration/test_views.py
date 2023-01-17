@@ -39,7 +39,7 @@ class SignUpViewTestCase(SetupUserMixin, TestCase):
         missing error is the simplest
         """
         response = self.client.post(self.view, {})
-        self.assertContains(response, "This field is required", count=5)
+        self.assertContains(response, "This field is required", count=6)
 
     def test_valid_submit_redirect(self):
         data = {
