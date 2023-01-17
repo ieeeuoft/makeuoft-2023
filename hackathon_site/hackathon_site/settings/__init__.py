@@ -312,7 +312,7 @@ DEFAULT_FROM_EMAIL = "webmaster@ieee.utoronto.ca"
 CONTACT_EMAIL = "hello@makeuoft.ca"
 HSS_ADMIN_EMAIL = "hardware@makeuoft.ca"
 
-REGISTRATION_OPEN_DATE = datetime(2023, 1, 17, 12, 0, 0, tzinfo=TZ_INFO)
+REGISTRATION_OPEN_DATE = datetime(2023, 1, 17, 17, 0, 0, tzinfo=TZ_INFO)
 REGISTRATION_CLOSE_DATE = datetime(2023, 2, 4, 23, 59, 0, tzinfo=TZ_INFO)
 EVENT_START_DATE = datetime(2023, 2, 18, 10, 0, 0, tzinfo=TZ_INFO)
 EVENT_END_DATE = datetime(2023, 2, 19, 17, 0, 0, tzinfo=TZ_INFO)
