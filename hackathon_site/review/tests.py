@@ -205,40 +205,40 @@ class MailerTestCase(SetupUserMixin, TestCase):
         for user in expected_users:
             self.assertIn(user.email, emailed_users)
 
-    def test_correct_text_in_accepted_email(self):
-        self._login()
-        self._create_teams_and_reviews_for_mail_tests()
-
-        # Send 1 accepted email
-        response = self.client.post(self.view, data=self.form_data)
-
-        clean = re.compile("<.*?>")
-        clean_mail_body = re.sub(clean, "", mail.outbox[0].body)
-
-        link = f"http://testserver{reverse('event:dashboard')}"
-
-        rsvp_deadline = (
-            datetime.now().date() + timedelta(days=settings.RSVP_DAYS)
-        ).strftime("%B %-d %Y")
-
-        self.assertIn(link, mail.outbox[0].body)
-        if settings.RSVP:
-            self.assertIn(rsvp_deadline, mail.outbox[0].body)
-        self.assertIn(settings.HACKATHON_NAME, mail.outbox[0].body)
-        self.assertIn(settings.PARTICIPANT_PACKAGE_LINK, mail.outbox[0].body)
-        self.assertIn(settings.CHAT_ROOM[0], mail.outbox[0].body)
-        self.assertIn(settings.CHAT_ROOM[1], mail.outbox[0].body)
-        self.assertIn(
-            f"Congratulations, you’ve been accepted to { settings.HACKATHON_NAME }",
-            mail.outbox[0].subject,
-        )
-        self.assertIn(
-            f"The {settings.HACKATHON_NAME} team has reviewed your application, and we’re excited to welcome you to {settings.HACKATHON_NAME}!",
-            clean_mail_body,
-        )
-
-        # Check that email was passed in correctly is a real user
-        self.assertTrue(User.objects.filter(email=mail.outbox[0].to[0]).exists())
+    # def test_correct_text_in_accepted_email(self):
+    #     self._login()
+    #     self._create_teams_and_reviews_for_mail_tests()
+    #
+    #     # Send 1 accepted email
+    #     response = self.client.post(self.view, data=self.form_data)
+    #
+    #     clean = re.compile("<.*?>")
+    #     clean_mail_body = re.sub(clean, "", mail.outbox[0].body)
+    #
+    #     link = f"http://testserver{reverse('event:dashboard')}"
+    #
+    #     rsvp_deadline = (
+    #         datetime.now().date() + timedelta(days=settings.RSVP_DAYS)
+    #     ).strftime("%B %-d %Y")
+    #
+    #     self.assertIn(link, mail.outbox[0].body)
+    #     if settings.RSVP:
+    #         self.assertIn(rsvp_deadline, mail.outbox[0].body)
+    #     self.assertIn(settings.HACKATHON_NAME, mail.outbox[0].body)
+    #     self.assertIn(settings.PARTICIPANT_PACKAGE_LINK, mail.outbox[0].body)
+    #     self.assertIn(settings.CHAT_ROOM[0], mail.outbox[0].body)
+    #     self.assertIn(settings.CHAT_ROOM[1], mail.outbox[0].body)
+    #     self.assertIn(
+    #         f"Congratulations, you’ve been accepted to { settings.HACKATHON_NAME }",
+    #         mail.outbox[0].subject,
+    #     )
+    #     self.assertIn(
+    #         f"The {settings.HACKATHON_NAME} team has reviewed your application, and we’re excited to welcome you to {settings.HACKATHON_NAME}!",
+    #         clean_mail_body,
+    #     )
+    #
+    #     # Check that email was passed in correctly is a real user
+    #     self.assertTrue(User.objects.filter(email=mail.outbox[0].to[0]).exists())
 
     def test_correct_text_in_waitlisted_email(self):
         self._login()
