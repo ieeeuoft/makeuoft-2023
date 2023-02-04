@@ -1685,7 +1685,10 @@ class OrderListViewPostTestCase(SetupUserMixin, APITestCase):
         # hardware limit and category limit
         num_hardware_requested = 5
         num_existing_orders = 3
+<<<<<<< HEAD
         num_expected_fulfilled = 3
+=======
+>>>>>>> 0dd39372fb4762c4b07175e790f2937837e5dbd5
 
         order = Order.objects.create(
             team=self.user.profile.team,
@@ -1704,6 +1707,7 @@ class OrderListViewPostTestCase(SetupUserMixin, APITestCase):
         }
         response = self.client.post(self.view, request_data, format="json")
 
+<<<<<<< HEAD
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
         expected_response = {
@@ -1731,6 +1735,16 @@ class OrderListViewPostTestCase(SetupUserMixin, APITestCase):
             order.items.filter(hardware=hardware).count(), num_expected_fulfilled
         )
 
+=======
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        expected_response = {
+            "non_field_errors": [
+                f"Unable to order Hardware {hardware.name} because there are not enough items in stock"
+            ]
+        }
+        self.assertEqual(response.json(), expected_response)
+
+>>>>>>> 0dd39372fb4762c4b07175e790f2937837e5dbd5
     @override_settings(HARDWARE_SIGN_OUT_START_DATE=datetime.now(settings.TZ_INFO))
     def test_empty_input(self):
         self._login()
@@ -1787,6 +1801,7 @@ class OrderListViewPostTestCase(SetupUserMixin, APITestCase):
         request_data = {"hardware": [{"id": hardware.id, "quantity": 1}]}
         response = self.client.post(self.view, request_data, format="json")
 
+<<<<<<< HEAD
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
         expected_response = {
@@ -1798,6 +1813,13 @@ class OrderListViewPostTestCase(SetupUserMixin, APITestCase):
                     "message": "There are no {}s available".format(hardware.name),
                 }
             ],
+=======
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        expected_response = {
+            "non_field_errors": [
+                f"Unable to order Hardware {hardware.name} because there are not enough items in stock"
+            ]
+>>>>>>> 0dd39372fb4762c4b07175e790f2937837e5dbd5
         }
         self.assertEqual(response.json(), expected_response)
 
