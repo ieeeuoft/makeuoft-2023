@@ -249,7 +249,15 @@ class OrderCreateSerializer(serializers.Serializer):
         for (hardware, requested_quantity) in requested_hardware.items():
             team_hardware = team_unreturned_orders.get(id=hardware.id)
             team_hardware_count = getattr(team_hardware, "past_order_count", 0)
+<<<<<<< HEAD
             if (team_hardware_count + requested_quantity) > hardware.max_per_team:
+=======
+            if hardware.quantity_remaining - requested_quantity < 0:
+                error_messages.append(
+                    f"Unable to order Hardware {hardware.name} because there are not enough items in stock"
+                )
+            elif (team_hardware_count + requested_quantity) > hardware.max_per_team:
+>>>>>>> 0dd39372fb4762c4b07175e790f2937837e5dbd5
                 error_messages.append(
                     "Maximum number of items for Hardware {} is reached (limit of {} per team)".format(
                         hardware.name, hardware.max_per_team
