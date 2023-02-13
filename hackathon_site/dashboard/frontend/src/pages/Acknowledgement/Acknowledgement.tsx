@@ -77,11 +77,11 @@ const Acknowledgement = () => {
                                 isTestUser
                                     ? "Accepted"
                                     : signoutNotStarted
-                                    ? "NotStarted"
-                                    : acceptanceUser?.review_status === "None" ||
-                                      !acceptanceUser?.review_status
-                                    ? "Incomplete"
-                                    : acceptanceUser?.review_status
+                                        ? "NotStarted"
+                                        : acceptanceUser?.review_status === "None" ||
+                                            !acceptanceUser?.review_status
+                                            ? "Incomplete"
+                                            : acceptanceUser?.review_status
                             }
                             handleGetStarted={() => setShowAcknowledgements(true)}
                         />
@@ -144,8 +144,8 @@ const SuccessMessage = () => {
                         </Button>
                     </Box>
                 </Card>
-            </Grid>
-        </Grid>
+            </Grid >
+        </Grid >
     );
 };
 

@@ -19,6 +19,7 @@
 
     &Logo {
         display: flex;
+
         &Img {
             height: 40px;
 
@@ -27,6 +28,7 @@
                 margin-top: 3px;
             }
         }
+
         &Title {
             margin: 2px 0 0 -50px;
 
@@ -42,17 +44,21 @@
             @include flexPosition($jusCon: flex-end);
             background-color: color(light1);
             padding: 8px 15px;
+
             svg {
                 fill: color(grey);
             }
+
             @include responsive(sm-down) {
                 padding: 4px 15px;
             }
         }
+
         &Hackathon {
             padding: 30px 15px 20px;
             border-bottom: 1px solid color(light2);
             margin-bottom: 20px;
+
             &Img {
                 height: 48px;
             }

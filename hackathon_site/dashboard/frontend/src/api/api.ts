@@ -61,9 +61,9 @@ export const stripHostnameReturnFilters = (
         }
         return Object.keys(filters).length > 0
             ? {
-                  path: parsed.pathname,
-                  filters,
-              }
+                path: parsed.pathname,
+                filters,
+            }
             : { path: parsed.pathname };
     }
     return { path: "" };
