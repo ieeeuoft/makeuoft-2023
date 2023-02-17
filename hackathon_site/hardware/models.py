@@ -28,7 +28,10 @@ class AnnotatedHardwareManager(models.Manager):
                     "order_items",
                     filter=(
                         ~Q(order_items__part_returned_health="Healthy")
-                        & ~Q(order_items__part_returned_health="Rejected")
+                        & ~(
+                            Q(order_items__part_returned_health="Rejected")
+                            & Q(order_items__order__status="Picked Up")
+                        )
                         & ~Q(order_items__order__status="Cancelled")
                     ),
                     distinct=True,
