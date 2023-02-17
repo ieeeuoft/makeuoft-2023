@@ -98,7 +98,12 @@ export interface ProfileWithUser extends ProfileWithoutTeamNumber {
 
 /** Orders API */
 export type OrderStatus = "Submitted" | "Ready for Pickup" | "Picked Up" | "Cancelled";
-export type PartReturnedHealth = "Healthy" | "Heavily Used" | "Broken" | "Lost";
+export type PartReturnedHealth =
+    | "Healthy"
+    | "Heavily Used"
+    | "Broken"
+    | "Lost"
+    | "Rejected";
 
 export type ItemsInOrder = Omit<OrderItem, "order" | "time_occurred">;
 
@@ -128,6 +133,7 @@ export interface OrderItemTableRow {
     id: number;
     quantityRequested: number;
     quantityGranted: number;
+    quantityGrantedBySystem: number;
 }
 
 export interface OrderInTable {

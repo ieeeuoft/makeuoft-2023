@@ -28,7 +28,7 @@ export const teamOrderListSerialization = (
                     (hardwareRequested[hardware.id] = hardware.requested_quantity)
             );
             order.items.forEach(({ id, hardware_id, part_returned_health }) => {
-                if (part_returned_health) {
+                if (part_returned_health && part_returned_health !== "Rejected") {
                     const returnItemKey = `${hardware_id}-${part_returned_health}`;
                     if (returnedItems[returnItemKey])
                         returnedItems[returnItemKey].quantity += 1;
@@ -43,13 +43,17 @@ export const teamOrderListSerialization = (
                         };
                     }
                 } else {
-                    if (hardwareItems[hardware_id])
-                        hardwareItems[hardware_id].quantityGranted += 1;
-                    else
+                    if (hardwareItems[hardware_id]) {
+                        if (part_returned_health !== "Rejected")
+                            hardwareItems[hardware_id].quantityGranted += 1;
+                        hardwareItems[hardware_id].quantityGrantedBySystem += 1;
+                    } else
                         hardwareItems[hardware_id] = {
                             id: hardware_id,
-                            quantityGranted: 1,
+                            quantityGranted:
+                                part_returned_health === "Rejected" ? 0 : 1,
                             quantityRequested: hardwareRequested[hardware_id],
+                            quantityGrantedBySystem: 1,
                         };
                 }
                 hardwareIdsToFetch[hardware_id] = hardware_id;
