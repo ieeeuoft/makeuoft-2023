@@ -27,6 +27,7 @@ import {
 import AlertBox from "components/general/AlertBox/AlertBox";
 import TeamCheckedOutOrderTable from "components/teamDetail/TeamCheckedOutOrderTable/TeamCheckedOutOrderTable";
 import { getHardwareWithFilters, setFilters } from "slices/hardware/hardwareSlice";
+import TeamPendingOrderTable from "components/teamDetail/TeamPendingOrderTable/TeamPendingOrderTable";
 
 export interface PageParams {
     code: string;
@@ -87,7 +88,8 @@ const TeamDetail = ({ match }: RouteComponentProps<PageParams>) => {
                             <AlertBox error={orderError} />
                         ) : (
                             <>
-                                <SimplePendingOrderFulfillmentTable />
+                                {/* <SimplePendingOrderFulfillmentTable /> */}
+                                <TeamPendingOrderTable />
                                 <Divider className={styles.dividerMargin} />
                                 <TeamCheckedOutOrderTable />
                                 <Divider className={styles.dividerMargin} />
