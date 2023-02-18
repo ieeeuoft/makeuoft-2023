@@ -43,18 +43,26 @@ export const teamOrderListSerialization = (
                         };
                     }
                 } else {
-                    if (hardwareItems[hardware_id]) {
-                        if (part_returned_health !== "Rejected")
-                            hardwareItems[hardware_id].quantityGranted += 1;
-                        hardwareItems[hardware_id].quantityGrantedBySystem += 1;
-                    } else
-                        hardwareItems[hardware_id] = {
-                            id: hardware_id,
-                            quantityGranted:
-                                part_returned_health === "Rejected" ? 0 : 1,
-                            quantityRequested: hardwareRequested[hardware_id],
-                            quantityGrantedBySystem: 1,
-                        };
+                    if (
+                        !(
+                            part_returned_health === "Rejected" &&
+                            order.status === "Picked Up"
+                        )
+                    ) {
+                        if (hardwareItems[hardware_id]) {
+                            if (part_returned_health !== "Rejected")
+                                hardwareItems[hardware_id].quantityGranted += 1;
+                            hardwareItems[hardware_id].quantityGrantedBySystem += 1;
+                        } else {
+                            hardwareItems[hardware_id] = {
+                                id: hardware_id,
+                                quantityGranted:
+                                    part_returned_health === "Rejected" ? 0 : 1,
+                                quantityRequested: hardwareRequested[hardware_id],
+                                quantityGrantedBySystem: 1,
+                            };
+                        }
+                    }
                 }
                 hardwareIdsToFetch[hardware_id] = hardware_id;
             });
