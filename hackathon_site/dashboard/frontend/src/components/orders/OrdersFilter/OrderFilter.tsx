@@ -183,7 +183,6 @@ export const EnhancedOrderFilter = () => {
             initialValues={{
                 ordering: "",
                 status: [],
-                limit: 1000,
             }}
             onSubmit={handleSubmit}
             onReset={handleReset}
