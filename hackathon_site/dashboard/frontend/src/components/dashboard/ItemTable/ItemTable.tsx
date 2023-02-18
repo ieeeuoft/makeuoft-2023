@@ -42,7 +42,6 @@ import {
     GeneralPendingTable,
     GeneralReturnTable,
 } from "components/general/OrderTables/OrderTables";
-import PopupModal from "components/general/PopupModal/PopupModal";
 
 export const CheckedOutTables = () =>
     // TODO: for incident reports
@@ -224,16 +223,16 @@ export const PendingTables = () => {
     const isCancelOrderLoading = useSelector(cancelOrderLoadingSelector);
     const toggleVisibility = () => dispatch(togglePendingTable());
     const cancelOrder = (orderId: number) => dispatch(cancelOrderThunk(orderId));
-    const [showCancelOrderModal, setShowCancelOrderModal] = useState(false);
+    // const [showCancelOrderModal, setShowCancelOrderModal] = useState(false);
 
-    const closeModal = () => {
-        setShowCancelOrderModal(false);
-    };
-
-    const submitModal = (cancelOrderId: number) => {
-        cancelOrder(cancelOrderId); // Perform Cancellation
-        setShowCancelOrderModal(false);
-    };
+    // const closeModal = () => {
+    //     setShowCancelOrderModal(false);
+    // };
+    //
+    // const submitModal = (cancelOrderId: number) => {
+    //     cancelOrder(cancelOrderId); // Perform Cancellation
+    //     setShowCancelOrderModal(false);
+    // };
 
     return (
         <Container
@@ -269,7 +268,7 @@ export const PendingTables = () => {
                                 }}
                             >
                                 <Button
-                                    onClick={() => setShowCancelOrderModal(true)}
+                                    onClick={() => cancelOrder(pendingOrder.id)}
                                     disabled={isCancelOrderLoading}
                                     color="secondary"
                                     data-testid="cancel-order-button"

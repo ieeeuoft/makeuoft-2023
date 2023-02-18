@@ -23,8 +23,7 @@ import {
     mockTeam,
 } from "testing/mockData";
 import { get, patch } from "api/api";
-import { AxiosResponse } from "axios";
-import { Hardware, Order, Team } from "api/types";
+import { Hardware, Order } from "api/types";
 import { pendingOrderSelectors } from "slices/order/orderSlice";
 
 jest.mock("api/api", () => ({
@@ -185,8 +184,8 @@ describe("Dashboard Page", () => {
         fireEvent.click(cancelOrderBtn);
 
         // Make sure cancel order button on modal is called
-        const confirmCancelOrderBtn = getByText(/Delete Order/i);
-        fireEvent.click(confirmCancelOrderBtn);
+        // const confirmCancelOrderBtn = getByText(/Delete Order/i);
+        // fireEvent.click(confirmCancelOrderBtn);
 
         await waitFor(() => {
             expect(mockedPatch).toHaveBeenCalledWith(`/api/event/teams/team/orders/4`, {
