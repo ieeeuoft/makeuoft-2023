@@ -181,4 +181,9 @@ export const adminOrderNumStatusesSelector = createSelector(
     (adminOrderSlice) => adminOrderSlice.numStatuses
 );
 
+export const adminOrderTotalSelector = createSelector(
+    [adminOrderSelectors.selectAll],
+    (orderItems) => orderItems.reduce((accum) => accum + 1, 0)
+);
+
 export const { setFilters, clearFilters } = actions;
