@@ -276,17 +276,17 @@ export const PendingTables = () => {
                                 >
                                     Cancel order
                                 </Button>
-                                <PopupModal
-                                    description={
-                                        "Are you sure you want to cancel this order? The team will be notified."
-                                    }
-                                    isVisible={showCancelOrderModal}
-                                    submitHandler={() => submitModal(pendingOrder.id)}
-                                    cancelText={"Go Back"}
-                                    submitText={"Delete Order"}
-                                    cancelHandler={closeModal}
-                                    title={"Careful!"}
-                                />
+                                {/*<PopupModal*/}
+                                {/*    description={*/}
+                                {/*        "Are you sure you want to cancel this order? The team will be notified."*/}
+                                {/*    }*/}
+                                {/*    isVisible={showCancelOrderModal}*/}
+                                {/*    submitHandler={() => submitModal(pendingOrder.id)}*/}
+                                {/*    cancelText={"Go Back"}*/}
+                                {/*    submitText={"Delete Order"}*/}
+                                {/*    cancelHandler={closeModal}*/}
+                                {/*    title={"Careful!"}*/}
+                                {/*/>*/}
                             </div>
                         )}
                     </div>
