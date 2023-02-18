@@ -317,7 +317,7 @@ HSS_ADMIN_EMAIL = "hardware@ieee.utoronto.ca"
 
 REGISTRATION_OPEN_DATE = datetime(2023, 1, 17, 17, 0, 0, tzinfo=TZ_INFO)
 REGISTRATION_CLOSE_DATE = datetime(2023, 2, 11, 23, 59, 0, tzinfo=TZ_INFO)
-EVENT_START_DATE = datetime(2023, 2, 18, 9, 0, 0, tzinfo=TZ_INFO)
+EVENT_START_DATE = datetime(2023, 2, 18, 8, 30, 0, tzinfo=TZ_INFO)
 EVENT_END_DATE = datetime(2023, 2, 19, 17, 0, 0, tzinfo=TZ_INFO)
 HARDWARE_SIGN_OUT_START_DATE = datetime(2023, 2, 10, 0, 0, 0, tzinfo=TZ_INFO)
 HARDWARE_SIGN_OUT_END_DATE = EVENT_END_DATE
@@ -361,7 +361,7 @@ SIGN_IN_TIMES = [
     {
         "name": "sign_in",
         "description": "Hackathon Sign In",
-        "time": datetime(2023, 2, 18, 10, 0, 0, tzinfo=TZ_INFO),  # Oct 10th @ 11am
+        "time": datetime(2023, 2, 18, 9, 50, 0, tzinfo=TZ_INFO),  # Oct 10th @ 11am
     },
     {
         "name": "lunch1",
