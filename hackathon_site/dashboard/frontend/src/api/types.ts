@@ -121,6 +121,7 @@ export type OrderOrdering = "" | "created_at" | "-created_at";
 export interface OrderFilters {
     ordering?: OrderOrdering;
     status?: OrderStatus[];
+    limit?: number;
 }
 
 /** Sanitized Orders */
