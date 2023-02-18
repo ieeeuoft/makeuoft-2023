@@ -8,10 +8,7 @@ import { RouteComponentProps } from "react-router-dom";
 import Header from "components/general/Header/Header";
 import { Grid, Divider } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import {
-    AdminReturnedItemsTable,
-    SimplePendingOrderFulfillmentTable,
-} from "components/teamDetail/SimpleOrderTables/SimpleOrderTables";
+import { AdminReturnedItemsTable } from "components/teamDetail/SimpleOrderTables/SimpleOrderTables";
 import {
     errorSelector,
     getAdminTeamOrders,
