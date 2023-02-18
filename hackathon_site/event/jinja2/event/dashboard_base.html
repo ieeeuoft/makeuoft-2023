@@ -71,6 +71,10 @@
                         {% if (application.rsvp and using_rsvp) or not using_rsvp %}
                             <p>Make sure you read the <a class="primaryText hoverLink" href="{{ participant_package_link }}" rel="noopener" target="_blank">participant package</a> for all the info regarding
                                 the event, and join our <a class="primaryText hoverLink" href="{{ chat_room_link }}" rel="noopener" target="_blank">{{ chat_room_name }}</a>. Stay tuned for more updates regarding detailed event logistics, and we hope to see you soon!</p> <br />
+                            <div style="margin-bottom: 15px; display: flex; flex-direction: column; align-items: center">
+                                <p>Please show the QR code below to the front desk to sign-in. .</p>
+                                <canvas id="qrcode" style="width: 150px; height: 150px; margin: 10px auto"></canvas>
+                            </div>
                         {% endif %}
                         <p>If you have questions, read the <a class="primaryText hoverLink" href="#faq">FAQ</a>, or feel free to contact us.</p> <br />
 
@@ -199,12 +203,12 @@
                 {% endif %}
             </div>
             {% endif %}
-<div class="borderTopDiv z-depth-3">
- <h2 class="formH2" id="faq">Browse Our Hardware</h2>
-    <p>Once your team is made, browse our selection of hardware at <a href="http://hardware.makeuoft.ca" target="_blank">hardware.makeuoft.ca</a>. <br> <br>
-The hardware signout site will be used for all hardware related logistics during the makeathon. Once you submit an order, our team will review and approve your order based on our supplies and your description of purpose. The distribution time starts at 11:59 am on Feb 13th.
-</p>
-</div>
+            <div class="borderTopDiv z-depth-3">
+                <h2 class="formH2" id="faq">Browse Our Hardware</h2>
+                <p>Once your team is made, browse our selection of hardware at <a href="http://hardware.makeuoft.ca" target="_blank">hardware.makeuoft.ca</a>. <br> <br>
+                The hardware signout site will be used for all hardware related logistics during the makeathon. Once you submit an order, our team will review and approve your order based on our supplies and your description of purpose. The distribution time starts at 11:59 am on Feb 13th.
+                </p>
+            </div>
 
 
             <div class="borderTopDiv z-depth-3">
@@ -236,4 +240,15 @@ The hardware signout site will be used for all hardware related logistics during
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script type="text/javascript">
+        var qrcode = new QRious({
+            element: document.getElementById("qrcode"),
+            value: "{{ user.first_name }};{{ user.last_name }};{{ user.email }}",
+            size: 150,
+        });
+    </script>
 {% endblock %}

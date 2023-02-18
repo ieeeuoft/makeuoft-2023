@@ -104,7 +104,6 @@ strong {
         background-color: color(errorOnHover) !important;
     }
 }
-
 .active {
     color: color(secondary);
 }
@@ -634,4 +633,39 @@ nav ul a {
         margin: 5px 0 20px;
     }
 }
+
+.banner {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px;
+    border-style: solid;
+    margin: 10px 0;
+
+    &success {
+        border-color: color(success);
+        background-color: color(successBackground);
+        color: color(success);
+    }
+
+    &error {
+        border-color: color(error);
+        background-color: color(errorBackground);
+        color: color(error);
+    }
+
+    &info {
+        border-color: color(info);
+        background-color: color(infoBackground);
+        color: color(info);
+    }
+
+    &warning {
+        border-color: color(warning);
+        background-color: color(warningBackground);
+        color: color(warning);
+    }
+}
+
 // End of dashboard stuff

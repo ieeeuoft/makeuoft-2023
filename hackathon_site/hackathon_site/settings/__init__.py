@@ -110,6 +110,7 @@ INSTALLED_APPS = [
     "django_filters",
     "client_side_image_cropping",
     "captcha",
+    "qrcode",
     "dashboard",
     "registration",
     "event",
@@ -164,6 +165,7 @@ LOGIN_URL = reverse_lazy("event:login")
 LOGIN_REDIRECT_URL = reverse_lazy("event:dashboard")
 LOGOUT_REDIRECT_URL = reverse_lazy("event:index")
 
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -352,3 +354,33 @@ RSVP = True
 
 # HSS Testing
 TEST_USER_GROUP = "HSS Test Users"
+
+# sign in times must be between EVENT_START_DATE and EVENT_END_DATE and in chronological order
+# the number of sign in times MUST MATCH the number of columns in UserActivityTable
+SIGN_IN_TIMES = [
+    {
+        "name": "sign_in",
+        "description": "Hackathon Sign In",
+        "time": datetime(2023, 2, 18, 8, 30, 0, tzinfo=TZ_INFO),  # Oct 10th @ 11am
+    },
+    {
+        "name": "lunch1",
+        "description": "Lunch Day 1",
+        "time": datetime(2023, 2, 18, 13, 0, 0, tzinfo=TZ_INFO),  # Oct 10th @ 2pm
+    },
+    {
+        "name": "dinner1",
+        "description": "Dinner Day 1",
+        "time": datetime(2023, 2, 18, 18, 0, 0, tzinfo=TZ_INFO),  # Oct 10th @ 6pm
+    },
+    {
+        "name": "breakfast2",
+        "description": "Breakfast Day 2",
+        "time": datetime(2023, 2, 19, 8, 0, 0, tzinfo=TZ_INFO),  # Oct 11th @ 9am
+    },
+    {
+        "name": "lunch2",
+        "description": "Lunch Day 2",
+        "time": datetime(2023, 2, 19, 13, 0, 0, tzinfo=TZ_INFO),  # Oct 11th @ 12pm
+    },
+]
