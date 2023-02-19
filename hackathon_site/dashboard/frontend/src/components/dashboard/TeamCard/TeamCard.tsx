@@ -6,6 +6,7 @@ import TitledPaper from "components/general/TitledPaper/TitledPaper";
 import Button from "@material-ui/core/Button";
 import { useSelector } from "react-redux";
 import { teamCodeSelector, teamMemberNamesSelector } from "slices/event/teamSlice";
+import { teamGaveIdSelector } from "../../../slices/event/teamDetailSlice";
 
 interface TeamProps {
     handleEditTeam?: any;
@@ -14,11 +15,13 @@ interface TeamProps {
 export const TeamCard = ({ handleEditTeam }: TeamProps) => {
     const members = useSelector(teamMemberNamesSelector);
     const teamCode = useSelector(teamCodeSelector);
+    const didTeamGiveId = useSelector(teamGaveIdSelector);
 
     const title = teamCode === null ? "No Team" : "Team " + teamCode;
     // waiting for the team store
     return (
         <TitledPaper title={title}>
+            {"🚩"}
             {members?.length
                 ? members?.map((member, i) => (
                       <Container className={styles.name} key={i}>

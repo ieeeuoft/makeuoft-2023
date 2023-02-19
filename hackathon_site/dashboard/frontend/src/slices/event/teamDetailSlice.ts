@@ -14,6 +14,7 @@ interface TeamDetailExtraState {
     isParticipantIdLoading: boolean;
     teamInfoError: string | null;
     participantIdError: string | null;
+    didParticipantGiveId: boolean;
 }
 
 const extraState: TeamDetailExtraState = {
@@ -21,6 +22,7 @@ const extraState: TeamDetailExtraState = {
     isParticipantIdLoading: false,
     teamInfoError: null,
     participantIdError: null,
+    didParticipantGiveId: false,
 };
 
 const teamDetailAdapter = createEntityAdapter<ProfileWithUser>();
@@ -137,6 +139,10 @@ const teamDetailSlice = createSlice({
                 },
             };
             teamDetailAdapter.updateOne(state, updateObject);
+            // if id is provided
+            if (payload.id_provided) {
+                state.didParticipantGiveId = true;
+            }
         });
         builder.addCase(updateParticipantIdProvided.rejected, (state, { payload }) => {
             state.isParticipantIdLoading = false;
@@ -173,4 +179,9 @@ export const teamInfoErrorSelector = createSelector(
 export const updateParticipantIdErrorSelector = createSelector(
     [teamDetailSliceSelector],
     (teamDetailSlice) => teamDetailSlice.participantIdError
+);
+
+export const teamGaveIdSelector = createSelector(
+    [teamDetailSliceSelector],
+    (teamDetailSlice) => teamDetailSlice.didParticipantGiveId
 );
