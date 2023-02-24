@@ -15,7 +15,7 @@ interface ItemProps {
 
 const Item = ({ image, title, total, currentStock }: ItemProps): ReactElement => {
     const userType = useSelector(userTypeSelector);
-    const stock = !currentStock
+    const stock = !currentStock || currentStock < 0
         ? "OUT OF STOCK"
         : userType === "participant"
         ? currentStock + " IN STOCK"
